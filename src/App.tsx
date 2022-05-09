@@ -4,6 +4,22 @@ import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import { RenderInput } from "./RenderInput";
 import { useCallback } from "react";
+import { FrameworkList } from "./FrameworkList";
+
+export const frameworkList = [
+  {
+    id: 1,
+    text: "React",
+  },
+  {
+    id: 2,
+    text: "Angular",
+  },
+  {
+    id: 3,
+    text: "Vue",
+  },
+];
 
 function App() {
   const outputConsole = useCallback((text: string) => {
@@ -16,6 +32,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <RenderInput outputConsole={outputConsole} />
+        <FrameworkList frameworkList={frameworkList} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
