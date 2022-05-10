@@ -1,11 +1,9 @@
-import React from "react";
-import logo from "./logo.svg";
-import { Counter } from "./features/counter/Counter";
 import "./App.css";
 import { RenderInput } from "./RenderInput";
 import { useCallback } from "react";
 import { FrameworkList } from "./FrameworkList";
 import { UseEffectRender } from "./UseEffectRender";
+import { Counter } from "../features/counter/Counter";
 
 export const frameworkList = [
   {
@@ -30,7 +28,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <RenderInput outputConsole={outputConsole} />
         <FrameworkList frameworkList={frameworkList} />
