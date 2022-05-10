@@ -5,6 +5,7 @@ import "./App.css";
 import { RenderInput } from "./RenderInput";
 import { useCallback } from "react";
 import { FrameworkList } from "./FrameworkList";
+import { UseEffectRender } from "./UseEffectRender";
 
 export const frameworkList = [
   {
@@ -33,6 +34,7 @@ function App() {
         <Counter />
         <RenderInput outputConsole={outputConsole} />
         <FrameworkList frameworkList={frameworkList} />
+        <UseEffectRender />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
