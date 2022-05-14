@@ -38,7 +38,7 @@ const fetchUser = async () => {
   return res.data;
 };
 
-export const useUser = () => {
+export const useUser = (isEventHandler = false) => {
   const [userState, setUserState] = useState<UserState>({
     isLoading: false,
     isError: false,
@@ -65,6 +65,9 @@ export const useUser = () => {
   }, []);
 
   useEffect(() => {
+    if (isEventHandler) {
+      return;
+    }
     fetchUserData();
   }, []);
 
@@ -72,5 +75,6 @@ export const useUser = () => {
     user: userState.user,
     isLoading: userState.isLoading,
     isError: userState.isError,
+    fetchUser: fetchUserData,
   };
 };
