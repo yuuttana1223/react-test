@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
+import { API_URLS } from "../constants/api";
 
 export type User = {
   id: number;
@@ -32,9 +33,7 @@ type UserState = {
 };
 
 const fetchUser = async () => {
-  const res = await axios.get<User>(
-    "https://jsonplaceholder.typicode.com/users/1"
-  );
+  const res = await axios.get<User>(API_URLS.USERS.SHOW(1));
   return res.data;
 };
 
