@@ -1,10 +1,18 @@
 import { useUser } from "../hooks/useUser";
 
 export const UseEffectRender = () => {
-  const { user } = useUser();
+  const { user, isLoading, isError } = useUser();
+
+  if (isLoading) {
+    return <div>ローディング中...</div>;
+  }
+
+  if (isError) {
+    return <div>エラーが発生しました</div>;
+  }
 
   if (!user) {
-    return <div></div>;
+    return <div>ユーザーが見つかりません</div>;
   }
 
   return (
