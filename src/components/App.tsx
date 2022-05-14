@@ -4,6 +4,7 @@ import { useCallback } from "react";
 import { FrameworkList } from "./FrameworkList";
 import { UseEffectRender } from "./UseEffectRender";
 import { Counter } from "../features/counter/Counter";
+import { MockServer } from "./MockServer";
 
 export const frameworkList = [
   {
@@ -32,6 +33,7 @@ function App() {
         <RenderInput outputConsole={outputConsole} />
         <FrameworkList frameworkList={frameworkList} />
         <UseEffectRender />
+        <MockServer />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
