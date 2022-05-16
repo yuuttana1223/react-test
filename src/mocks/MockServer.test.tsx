@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import {
@@ -49,9 +49,7 @@ describe("Mocking API", () => {
       screen.getByRole("button", { name: LOADING_MESSAGE })
     ).toBeDisabled();
 
-    // 時間が立たないと名前が表示されないため待つ
-    await waitFor(() => screen.getByText(DUMMY_NAME));
-    expect(screen.getByRole("heading")).toHaveTextContent(DUMMY_NAME);
+    expect(await screen.findByRole("heading")).toHaveTextContent(DUMMY_NAME);
     expect(
       screen.getByRole("button", { name: FETCH_USER_MESSAGE })
     ).toBeDisabled();
@@ -76,8 +74,9 @@ describe("Mocking API", () => {
       await screen.findByRole("button", { name: LOADING_MESSAGE })
     ).toBeDisabled();
 
-    await waitFor(() => screen.getByText(FAILED_MESSAGE));
-    expect(await screen.findByText(FAILED_MESSAGE)).toBeInTheDocument();
+    expect(await screen.findByTestId("error")).toHaveTextContent(
+      FAILED_MESSAGE
+    );
     expect(screen.queryByRole("heading")).not.toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: FETCH_USER_MESSAGE })
