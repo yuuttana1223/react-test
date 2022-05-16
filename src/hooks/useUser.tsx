@@ -32,7 +32,7 @@ type UserState = {
   isError: boolean;
 };
 
-const fetchUser = async () => {
+export const fetchUser = async () => {
   const res = await axios.get<User>(API_URLS.USERS.SHOW(1));
   return res.data;
 };
