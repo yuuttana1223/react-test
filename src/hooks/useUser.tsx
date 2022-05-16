@@ -68,7 +68,7 @@ export const useUser = (isEventHandler = false) => {
       return;
     }
     fetchUserData();
-  }, []);
+  }, [fetchUserData, isEventHandler]);
 
   return {
     user: userState.user,
