@@ -48,6 +48,9 @@ export const customCounterSlice = createSlice({
           break;
       }
     },
+    decrement: (state: CustomCounterState) => {
+      state.value -= 1;
+    },
     incrementByAmount: (
       state: CustomCounterState,
       action: PayloadAction<number>
@@ -83,7 +86,8 @@ export const customCounterSlice = createSlice({
   },
 });
 
-export const { increment, incrementByAmount } = customCounterSlice.actions;
+export const { increment, decrement, incrementByAmount } =
+  customCounterSlice.actions;
 
 export const selectValue = (state: RootState) => state.customCounter.value;
 export const selectUsername = (state: RootState) =>
