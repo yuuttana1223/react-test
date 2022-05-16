@@ -23,7 +23,7 @@ describe("Reducer of ReduxToolKit", () => {
         type: increment.type,
       };
       const state = customCounterReducer(initialState, action);
-      expect(state.value).toEqual(1);
+      expect(state.value).toEqual(0 + 1);
     });
 
     it("Should increment by 100 with mode 1", () => {
@@ -32,7 +32,7 @@ describe("Reducer of ReduxToolKit", () => {
         type: increment.type,
       };
       const state = customCounterReducer(initialState, action);
-      expect(state.value).toEqual(100);
+      expect(state.value).toEqual(0 + 100);
     });
 
     it("Should increment by 10000 with mode 2", () => {
@@ -41,7 +41,7 @@ describe("Reducer of ReduxToolKit", () => {
         type: increment.type,
       };
       const state = customCounterReducer(initialState, action);
-      expect(state.value).toEqual(10000);
+      expect(state.value).toEqual(0 + 10000);
     });
   });
 });
@@ -58,7 +58,7 @@ describe("incrementByAmount action", () => {
       payload: 3,
     };
     const state = customCounterReducer(initialState, action);
-    expect(state.value).toEqual(3);
+    expect(state.value).toEqual(0 + 3);
   });
 
   it("Should increment by 100 * payload value with mode 1", () => {
@@ -68,7 +68,7 @@ describe("incrementByAmount action", () => {
       payload: 3,
     };
     const state = customCounterReducer(initialState, action);
-    expect(state.value).toEqual(300);
+    expect(state.value).toEqual(0 + 3 * 100);
   });
 
   it("Should increment by 10000 * payload value with mode 2", () => {
@@ -78,6 +78,6 @@ describe("incrementByAmount action", () => {
       payload: 3,
     };
     const state = customCounterReducer(initialState, action);
-    expect(state.value).toEqual(30000);
+    expect(state.value).toEqual(0 + 3 * 10000);
   });
 });
