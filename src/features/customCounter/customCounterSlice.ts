@@ -73,8 +73,9 @@ export const customCounterSlice = createSlice({
     });
     builder.addCase(fetchDummy.rejected, (state, action) => {
       // unknown型になるので型変える
-      const number = action.payload as number;
-      state.value = 100 - number;
+      if (typeof action.payload === "number") {
+        state.value = 100 - action.payload;
+      }
     });
     builder.addCase(fetchUsername.fulfilled, (state, action) => {
       state.username = action.payload;
