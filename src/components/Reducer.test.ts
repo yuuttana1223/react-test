@@ -4,20 +4,27 @@ import {
   incrementByAmount,
 } from "../features/customCounter/customCounterSlice";
 
-const initialState = {
+let initialState = {
   mode: 0,
   value: 0,
   username: "",
 };
 
-describe("Reducer of ReduxToolKit", () => {
-  describe("increment action", () => {
-    // 各itが実行される前に実行される
-    beforeAll(() => {
-      initialState.mode = 0;
-      initialState.value = 0;
-    });
+// テストファイルの前後で一度だけ実行したいケース(beforeAll, afterAll)
 
+// Jestは、テストファイル内の全てのdescribeをitの前に実行します。
+// 各itの前後で実行される
+beforeEach(() => {
+  initialState = {
+    mode: 0,
+    value: 0,
+    username: "",
+  };
+});
+
+describe("Reducer of ReduxToolKit", () => {
+  // describeメソッドの中でのみ実行したければここにbeforeEachなどを書く
+  describe("increment action", () => {
     it("Should increment by 1 with mode 0", () => {
       const action = {
         type: increment.type,
@@ -47,11 +54,6 @@ describe("Reducer of ReduxToolKit", () => {
 });
 
 describe("incrementByAmount action", () => {
-  beforeAll(() => {
-    initialState.mode = 0;
-    initialState.value = 0;
-  });
-
   it("Should increment by payload value with mode 0", () => {
     const action = {
       type: incrementByAmount.type,
