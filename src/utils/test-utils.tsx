@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { customCounterReducer } from "../features/customCounter/customCounterSlice";
 import { ReactElement } from "react";
 
+// override render method
 export const render = (
   ui: ReactElement,
   {
@@ -21,4 +22,3 @@ export const render = (
 
 // re-export everything
 export * from "@testing-library/react";
-// override render method
