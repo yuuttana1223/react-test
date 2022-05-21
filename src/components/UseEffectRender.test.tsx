@@ -4,7 +4,8 @@ import { UseEffectRender } from "./UseEffectRender";
 describe("useEffect rendering", () => {
   it("Should render only after async function resolved", async () => {
     render(<UseEffectRender />);
-    expect(screen.queryByText(/I am/)).not.toBeInTheDocument();
-    expect(await screen.findByText(/I am/)).toBeInTheDocument();
+    const REG = /I am/;
+    expect(screen.queryByText(REG)).not.toBeInTheDocument();
+    expect(await screen.findByText(REG)).toBeInTheDocument();
   });
 });
