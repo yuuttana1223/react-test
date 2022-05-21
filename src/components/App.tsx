@@ -6,6 +6,7 @@ import { UseEffectRender } from "./UseEffectRender";
 import { Counter } from "../features/counter/Counter";
 import { MockServer } from "./MockServer";
 import { Redux } from "./Redux";
+import { ReduxAsync } from "./ReduxAsync";
 
 export const frameworkList = [
   {
@@ -36,6 +37,7 @@ function App() {
         <UseEffectRender />
         <MockServer />
         <Redux />
+        <ReduxAsync />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
