@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { customCounterReducer } from "../features/customCounter/customCounterSlice";
 import { ReactElement } from "react";
 
-function render(
+export const render = (
   ui: ReactElement,
   {
     store = configureStore({
@@ -12,14 +12,13 @@ function render(
     }),
     ...renderOptions
   } = {}
-) {
+) => {
   const Wrapper = ({ children }: { children: ReactElement }) => {
     return <Provider store={store}>{children}</Provider>;
   };
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions });
-}
+};
 
 // re-export everything
 export * from "@testing-library/react";
 // override render method
-export { render };
