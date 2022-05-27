@@ -8,6 +8,8 @@ export type CustomCounterState = {
   username: string;
 };
 
+export const ANONYMOUS_USER = "anonymous";
+
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 export const fetchDummy = createAsyncThunk(
@@ -82,6 +84,9 @@ export const customCounterSlice = createSlice({
     });
     builder.addCase(fetchUsername.fulfilled, (state, action) => {
       state.username = action.payload;
+    });
+    builder.addCase(fetchUsername.rejected, (state) => {
+      state.username = ANONYMOUS_USER;
     });
   },
 });
