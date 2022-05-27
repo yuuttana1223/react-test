@@ -7,6 +7,7 @@ import { Counter } from "../features/counter/Counter";
 import { MockServer } from "./MockServer";
 import { Redux } from "./Redux";
 import { ReduxAsync } from "./ReduxAsync";
+import { CustomHooks } from "./CustomHooks";
 
 export const frameworkList = [
   {
@@ -38,6 +39,7 @@ function App() {
         <MockServer />
         <Redux />
         <ReduxAsync />
+        <CustomHooks />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
